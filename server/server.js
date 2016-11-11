@@ -18,14 +18,21 @@ let animals = images.map((image) => {
 app.post('/vote/:winner', (req, res) => {
     const params = req.params;
 
+    let foundAnimal = false;
+
     animals = animals.map((animal) => {
         if(animal.image === params.winner) {
             animal.votes++;
+            foundAnimal = true;
         }
         return animal;
     });
 
-    res.end(JSON.stringify({status: 'ok'}));
+    if(foundAnimal) {
+        res.end(JSON.stringify({status: 'ok'}));
+    } else {
+        res.end(JSON.stringify({status: 'failed', message: 'No animal with the name ' + params.winner}));
+    }
 });
 
 const getRandomAnimal = () => animals[Math.floor(Math.random()*animals.length)];
