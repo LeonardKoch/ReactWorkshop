@@ -62,49 +62,50 @@ Then copy the code below into the newly file and save it.
 Once you have done so you can import the AnimalsService like so into your app `import AnimalsService from './AnimalsService.js'`.
 You can use it by calling the functions `AnimalsService.getAnimalPair()` or `AnimalsService.getAllAnimals()`.
 `
-const serverBaseUrl = 'http://139.162.162.59:3500';
 
-class AnimalsService {
-    static getAllAnimals() {
-        var request = new XMLHttpRequest();
-        request.open('GET', serverBaseUrl + '/animals', false);
-        request.send(null);
+    const serverBaseUrl = 'http://139.162.162.59:3500';
 
-        const response = JSON.parse(request.responseText);
-        response.animals.forEach((animal) => {
-            animal.url = serverBaseUrl + animal.url;
-            return animal;
-        });
+    class AnimalsService {
+        static getAllAnimals() {
+            var request = new XMLHttpRequest();
+            request.open('GET', serverBaseUrl + '/animals', false);
+            request.send(null);
 
-        return response
-    }
+            const response = JSON.parse(request.responseText);
+            response.animals.forEach((animal) => {
+                animal.url = serverBaseUrl + animal.url;
+                return animal;
+            });
 
-    static vote(winner) {
-        var request = new XMLHttpRequest();
-        request.open('POST', serverBaseUrl + '/vote/' + winner.image, false);
-        request.send(null);
-
-        return JSON.parse(request.responseText);
-    }
-
-    static getAnimalPair() {
-        var request = new XMLHttpRequest();
-        request.open('GET', serverBaseUrl + '/animalpair', false);
-        request.send(null);
-
-        const response = JSON.parse(request.responseText);
-        if(response) {
-            if (response.animal1) {
-                response.animal1.url = serverBaseUrl + response.animal1.url;
-            }
-            if (response.animal2) {
-                response.animal2.url = serverBaseUrl + response.animal2.url;
-            }
+            return response
         }
 
-        return response;
-    }
-}
+        static vote(winner) {
+            var request = new XMLHttpRequest();
+            request.open('POST', serverBaseUrl + '/vote/' + winner.image, false);
+            request.send(null);
 
-export default AnimalsService;
+            return JSON.parse(request.responseText);
+        }
+
+        static getAnimalPair() {
+            var request = new XMLHttpRequest();
+            request.open('GET', serverBaseUrl + '/animalpair', false);
+            request.send(null);
+
+            const response = JSON.parse(request.responseText);
+            if(response) {
+                if (response.animal1) {
+                    response.animal1.url = serverBaseUrl + response.animal1.url;
+                }
+                if (response.animal2) {
+                    response.animal2.url = serverBaseUrl + response.animal2.url;
+                }
+            }
+
+            return response;
+        }
+    }
+
+    export default AnimalsService;
 `
