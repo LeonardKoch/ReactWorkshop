@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import AnimalsService from './AnimalsService.js';
 import Leaderboard from './Leaderboard.js';
 import Voting from './Voting.js';
 

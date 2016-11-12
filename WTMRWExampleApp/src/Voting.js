@@ -35,6 +35,7 @@ class Voting extends Component {
         return (
             <div className="voting">
                 <img src={this.state.animal1.url} onClick={() => this.voteForAnimal(this.state.animal1)} />
+                <div className="voting-or">or</div>
                 <img src={this.state.animal2.url} onClick={() => this.voteForAnimal(this.state.animal2)} />
             </div>
         );

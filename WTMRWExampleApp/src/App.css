@@ -10,9 +10,13 @@
 .voting {
     display: flex;
     justify-content: space-around;
+    height: 500px;
 }
 
-
+.voting-or {
+    font-size: 96px;
+    align-self: center;
+}
 
 .Leaderboard {
     list-style: none;
