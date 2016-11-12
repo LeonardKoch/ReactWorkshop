@@ -1,5 +1,4 @@
-const serverBaseUrl = 'http://localhost:3500';
-//const serverBaseUrl = 'http://139.162.162.59:3500';
+const serverBaseUrl = 'http://139.162.162.59:3500';
 
 class AnimalsService {
 	static getAllAnimals() {
