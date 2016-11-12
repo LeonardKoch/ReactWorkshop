@@ -52,7 +52,7 @@ app.get('/animalpair', (req, res) => {
 
 app.get('/animals', (req, res) => {
     const response = {
-        animals: animals
+        animals: animals.sort((a, b) => b.votes - a.votes)
     };
 
     res.end(JSON.stringify(response));
