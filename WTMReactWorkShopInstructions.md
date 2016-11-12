@@ -41,7 +41,7 @@ You will need to substitute the name you choose in the previous step here.
 The "cd" command stands for "change directory" and allows you to navigate through the file system with your command line.
 
 ## 7: Start your application
-Once your command line is in the folder of the application we just created, type "npm start".
+Once your command line is in the folder of the application we just created, type `npm start`.
 This will start a development server on your computer and open a browser tab with your React app in it.
 
 If you see a page saying "Welcome to React" in your browser everything worked and you now have a running React Application.
@@ -58,11 +58,10 @@ Atom (https://atom.io/)
 
 ## 9: Add the animal service to your project
 In your `src` folder create a new file and name it `AnimalsService.js`.
-Then copy the code below into the newly file and save it.
+Then copy the code below into the newly created file and save it.
 Once you have done so you can import the AnimalsService like so into your app `import AnimalsService from './AnimalsService.js'`.
 You can use it by calling the functions `AnimalsService.getAnimalPair()` or `AnimalsService.getAllAnimals()`.
-`
-
+```
     const serverBaseUrl = 'http://139.162.162.59:3500';
 
     class AnimalsService {
@@ -108,4 +107,4 @@ You can use it by calling the functions `AnimalsService.getAnimalPair()` or `Ani
     }
 
     export default AnimalsService;
-`
+```
