@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import AnimalsService from './AnimalsService.js';
+import Leaderboard from './Leaderboard.js';
+import Voting from './Voting.js';
 
 class App extends Component {
-    render() {
-        console.log(AnimalsService.getAllAnimals());
-        console.log(AnimalsService.vote('Bear_1.jpg'));
-        console.log(AnimalsService.getAnimalPair());
+    constructor() {
+        super();
+        this.state = {
+            page: 'voting'
+        };
+    }
 
+    renderBody() {
+        if(this.state.page === 'voting') {
+            return <Voting />
+        }
+
+        if(this.state.page === 'leaderboard') {
+            return <Leaderboard />
+        }
+    }
+
+    render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
+                <div className="Header">
+                    <button onClick={() => this.setState({page: 'voting'})}>
+                        Voting
+                    </button>
+                    <button onClick={() => this.setState({page: 'leaderboard'})}>
+                        Leaderboard
+                    </button>
                 </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+                <div className="Body">
+                    {this.renderBody()}
+                </div>
             </div>
         );
     }

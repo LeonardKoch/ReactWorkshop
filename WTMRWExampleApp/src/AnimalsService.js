@@ -1,9 +1,10 @@
 const serverBaseUrl = 'http://localhost:3500';
+//const serverBaseUrl = 'http://139.162.162.59:3500';
 
 class AnimalsService {
 	static getAllAnimals() {
 		var request = new XMLHttpRequest();
-		request.open('GET', 'http://localhost:3500/animals', false);
+		request.open('GET', serverBaseUrl + '/animals', false);
 		request.send(null);
 
 		const response = JSON.parse(request.responseText);
@@ -17,7 +18,7 @@ class AnimalsService {
 
 	static vote(winner) {
 		var request = new XMLHttpRequest();
-		request.open('POST', 'http://localhost:3500/vote/' + winner, false);
+		request.open('POST', serverBaseUrl + '/vote/' + winner.image, false);
 		request.send(null);
 
 		return JSON.parse(request.responseText);
@@ -25,7 +26,7 @@ class AnimalsService {
 
 	static getAnimalPair() {
 		var request = new XMLHttpRequest();
-		request.open('GET', 'http://localhost:3500/animalpair', false);
+		request.open('GET', serverBaseUrl + '/animalpair', false);
 		request.send(null);
 
 		const response = JSON.parse(request.responseText);
